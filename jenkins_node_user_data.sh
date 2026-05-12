@@ -29,7 +29,10 @@ sudo xfs_growfs /var
 sleep 10
 # --- 2. INSTALL TOOLS ---
 sudo dnf install git -y
-
+sleep 5
+# ---- Install Java --#
+sudo dnf install fontconfig java-21-openjdk -y
+sleep 5
 # Install npm in agent
 sudo dnf module disable nodejs -y
 sudo dnf module enable nodejs:20 -y
@@ -44,3 +47,5 @@ sudo systemctl start docker
 sudo systemctl enable docker
 sleep 5
 usermod -aG docker ec2-user
+sleep 5
+sudo curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.70.0
