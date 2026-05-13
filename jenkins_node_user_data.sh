@@ -48,4 +48,5 @@ sudo systemctl enable docker
 sleep 5
 usermod -aG docker ec2-user
 sleep 5
+# INSTALL TRIVY 
 sudo curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v0.70.0
