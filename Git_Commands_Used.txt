@@ -31,7 +31,7 @@ which yum
 ls -l /usr/bin/yum
 cd prometheus
 
-user add prometheus
+useradd prometheus
 
 cd ..
 chown -R prometheus:prometheus prometheus
@@ -48,8 +48,7 @@ After=network-online.target
 User=prometheus
 Group=prometheus
 Restart=on-failure
-ExecStart=/opt/prometheus/prometheus \
-  --config.file=/opt/prometheus/prometheus.yml
+ExecStart=/opt/prometheus/prometheus --config.file=/opt/prometheus/prometheus.yml
 
 [Install]
 WantedBy=multi-user.target
@@ -65,8 +64,8 @@ sudo journalctl -u prometheus.service -f
 netstat -lntp
 <publicip>:9090
 
-CREATE PROMETHEUS NODE
-
+CREATE PROMETHEUS NODE - New EC2 Instance
+===========================
 sudo su -
 cd opt
 wget https://github.com/prometheus/node_exporter/releases/download/v1.11.1/node_exporter-1.11.1.linux-amd64.tar.gz
